@@ -1,7 +1,8 @@
 let year = moment().range('year');
-_.forEach(year.by('month')){
-
-}
+_.forEach(Array.from(year.by('month')), month =>{   
+    console.log(_.pad(month.format('MMMM'), 26, ' '))
+    console.log('')
+})
 
 
 
