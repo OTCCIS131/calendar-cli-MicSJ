@@ -27,9 +27,12 @@ for(const month of year.by('month'))
            return _.padEnd(date, 2, ' ')
         })
 
+        let monthRange = month.range('month')
+        let firstDay = monthRange.start.day()
+        
+
         let week = _.chunk(Array.from(paddedDays), 7)
-
-
+        
 
     console.log(week)
     }
