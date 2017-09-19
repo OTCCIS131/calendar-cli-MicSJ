@@ -26,44 +26,15 @@ for(const month of year.by('month'))
 
            return _.padEnd(date, 2, ' ')
         })
-        firstDay()
-        //let monthRange = month.range('month')
-        //let firstDay = monthRange.start.day()
-        function firstDay(){
-            if(month.format('MMMM') == 'February'){
-                paddedDays.unshift('  ', '  ', '  ')
-            }
-            if(month.format('MMMM') == 'March'){
-                paddedDays.unshift('  ', '  ', '  ')
-            }
-            if(month.format('MMMM') == 'April'){
-                paddedDays.unshift('  ', '  ', '  ', '  ', '  ', '  ')
-            }
-            if(month.format('MMMM') == 'May'){
-                paddedDays.unshift('  ')
-            }
-            if(month.format('MMMM') == 'June'){
-                paddedDays.unshift('  ', '  ', '  ', '  ')
-            }
-            if(month.format('MMMM') == 'July'){
-                paddedDays.unshift('  ', '  ', '  ', '  ', '  ', '  ')
-            }
-            if(month.format('MMMM') == 'August'){
-                paddedDays.unshift('  ', '  ')
-            }
-            if(month.format('MMMM') == 'September'){
-                paddedDays.unshift('  ', '  ', '  ', '  ', '  ')
-            }
-            if(month.format('MMMM') == 'November'){
-                paddedDays.unshift('  ', '  ', '  ')
-            }
-            if(month.format('MMMM') == 'December'){
-                paddedDays.unshift('  ', '  ', '  ', '  ', '  ')
-            }
+        
+        let monthRange = month.range('month')
+        let firstDay = monthRange.start.day()
+
+        for(let i = 0; i < firstDay; i++){
+            paddedDays.unshift('  ')
         }
 
         let week = _.chunk(Array.from(paddedDays), 7)
-        //foreach through the arrays to join weeks.join('  ')
         
         week = week.forEach(week => {
             console.log(_.join(week, '  '))
